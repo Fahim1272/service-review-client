@@ -1,6 +1,5 @@
 [
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "service_id": "01",
         "title": "Wedding Photography",
         "img": "https://i0.wp.com/shaadiwish.com/blog/wp-content/uploads/2020/06/faisal-alam-1024x683.jpg",
@@ -9,7 +8,6 @@
         
     },
     {
-        "_id": "635a0c0b64a6d231228942af",
         "service_id": "02",
         "title": "Street Photography",
         "img": "https://www.diyphotography.net/wp-content/uploads/2020/10/street.jpeg",
@@ -18,7 +16,6 @@
     
     },
     {
-        "_id": "635b591a1dafe382a9da8c96",
         "service_id": "03",
         "title": "Food Photography",
         "img": "https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg",
@@ -27,7 +24,6 @@
         
     },
     {
-        "_id": "635b5afc1dafe382a9da8c98",
         "service_id": "04",
         "title": "Sports Photography",
         "img": "https://wallpapers.com/images/hd/bangladesh-cricket-team-green-poster-3532ukxu2ppipg3d-3532ukxu2ppipg3d.jpg",
@@ -36,7 +32,6 @@
         
     },
     {
-        "_id": "635b5b691dafe382a9da8c99",
         "service_id": "05",
         "title": "Nature Photography",
         "img": "https://webneel.com/daily/sites/default/files/images/daily/03-2013/5-landscape-photography.jpg",
@@ -45,7 +40,6 @@
         
     },
     {
-        "_id": "635b5ba51dafe382a9da8c9a",
         "service_id": "06",
         "title": "Cinematography",
         "img": "https://www.nosequeestudiar.net/site/assets/files/358/camara-en-uso.jpg",
