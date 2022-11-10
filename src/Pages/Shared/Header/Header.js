@@ -7,6 +7,7 @@ const Header = () => {
     const menus = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
+        <li><Link to='/reviews'>My Reviews</Link></li>
     </>
     const navigate = useNavigate();
     const navigateToLogin = () => {

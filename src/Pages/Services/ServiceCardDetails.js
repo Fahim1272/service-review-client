@@ -1,9 +1,12 @@
-import React from 'react';
+
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 const ServiceCardDetails = ({ params }) => {
     
     const serviceDetails = useLoaderData();
+    const {user} = useContext(AuthContext)
     const {_id, img, title, details } = serviceDetails;
     console.log(serviceDetails);
     const handleReview =event =>{
@@ -12,6 +15,31 @@ const ServiceCardDetails = ({ params }) => {
         const name = `${form.name.value}`
         const email = form.email.value || 'user nai';
         const reviewMessage = form.textarea.value;
+
+        const review = {
+            service : _id,
+            customer: name,
+            serviceName : title,
+            reviewMessage,
+            email
+        }
+        fetch('http://localhost:5000/reviews',{
+            method:'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.acknoledged) {
+                alert('Review submitted ')
+                form.reset();
+            }
+        })
+        .catch(er => console.log(er))
+
     }
     return (
         <div>
@@ -43,7 +71,7 @@ const ServiceCardDetails = ({ params }) => {
                                         <label className="label">
                                             <span className="label-text">Email</span>
                                         </label>
-                                        <input type="text" name='email' placeholder="Enter your email" className="input input-bordered" />
+                                        <input type="text" name='email' placeholder="Enter your email" className="input input-bordered" defaultValue={user?.email} readOnly />
                                     </div>
                                     <div>
                                         <label className="label">
