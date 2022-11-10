@@ -16,7 +16,7 @@ const ServicesCard = ({ service }) => {
                 {/* <img src={img} alt="" className="rounded-xl" /> */}
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title">{title}</h2>
+                <h1 className="card-title">{title}</h1>
                 <p>{details}</p>
                 <h1 className='font-semibold'>Price:{price}</h1>
                 <div className="card-actions">
