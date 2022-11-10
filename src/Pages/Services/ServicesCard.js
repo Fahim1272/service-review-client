@@ -1,8 +1,9 @@
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link } from 'react-router-dom';
 
 const ServicesCard = ({ service }) => {
-    const { img, title, details, price } = service;
+    const { img, title, details, price, _id } = service;
     return (
 
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -19,7 +20,7 @@ const ServicesCard = ({ service }) => {
                 <p>{details}</p>
                 <h1 className='font-semibold'>Price:{price}</h1>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Details</button>
+                   <Link to={`/services/${_id}`}> <button className="btn btn-primary">Details</button></Link>
                 </div>
             </div>
         </div>

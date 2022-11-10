@@ -1,6 +1,4 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-
 const Register = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -28,8 +26,9 @@ const Register = () => {
                                 <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                         </div>
+
                         <div className="form-control mt-6">
-                        <p className='text-sm'> Already have an account on Photography? please <Link to={'/login'}>Log in</Link></p>
+                            <p className='text-sm'> Already have an account on Photography? please <Link to={'/login'}>Log in</Link></p>
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </div>

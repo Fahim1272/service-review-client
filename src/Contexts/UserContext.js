@@ -1,10 +1,18 @@
 import React, { createContext } from 'react';
-const AuthContext = createContext()
+import {getAuth, signInWithPopup} from 'firebase/auth'
+import app from '../firebase/firebase.config';
+export const AuthContext = createContext();
+const auth = getAuth(app);
 
-const UserContext = ({children}) => {
-    const authInfo = {}
+const UserContext = ({ children }) => {
+
+    const providerLogin = (provider) =>{
+        return signInWithPopup(auth, provider)
+    }
+
+    const authInfo = { providerLogin }
     return (
-        <AuthContext.Provider value={authInfo}>
+        <AuthContext.Provider value={ authInfo }>
             {children}
         </AuthContext.Provider>
     );
