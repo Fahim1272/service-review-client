@@ -1,11 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider';
+
 
 const Header = () => {
     const menus = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
     </>
+    const navigate = useNavigate();
+    const navigateToLogin = () => {
+        navigate('./login')
+    };
+    const navigateToRegister = () => {
+        navigate('./register')
+    };
+    
+    const { user, providerLogout } = useContext(AuthContext);
+    const handleLogOut = () => {
+        providerLogout()
+            .then(() => { })
+            .catch(error => console.error(error))
+
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -25,7 +42,20 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className="btn">Login</Link>
+                {
+                    user?.uid ?
+
+                        <>
+                            <span>{user?.displayName}</span>
+                            <button onClick={handleLogOut} className='mx-3 btn btn-active btn-secondary'>Log Out</button>{' '}
+                        </>
+                        :
+                        <>
+                            <button onClick={navigateToLogin} className=' mx-3 btn btn-outline btn-secondary'>Login</button>{' '}
+                            <button className='ms-3 btn btn-active btn-accent' onClick={navigateToRegister} >Register</button>{' '}
+                        </>
+                }
+                {/* <Link to='/login' className="btn">Login</Link> */}
             </div>
         </div>
     );
