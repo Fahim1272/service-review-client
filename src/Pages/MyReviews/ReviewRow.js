@@ -6,12 +6,12 @@ const ReviewRow = ({ review }) => {
     useEffect(()=>{
         fetch(` https://service-review-server-navy-nine.vercel.app/${[service.id]}`)
         .then(res=>res.json())
-        .then(data =>  setreviewService(data));
+        .then(data =>setreviewService(data));
 
     },[service])
 
     const handleDelete = id =>{
-        const confirmDel = window.confirm('Are you sure to delete?');
+        const confirmDel = window.confirm('Do you want to delete?');
         if (confirmDel) {
             fetch(`http://localhost:5000/reviews/${[id]}`,{
                 method: 'DELETE'
