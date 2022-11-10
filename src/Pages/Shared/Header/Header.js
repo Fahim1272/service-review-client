@@ -8,6 +8,7 @@ const Header = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
         <li><Link to='/reviews'>My Reviews</Link></li>
+        
     </>
     const navigate = useNavigate();
     const navigateToLogin = () => {
@@ -44,11 +45,12 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user?.uid ?
+                    user?.email ?
 
                         <>
                             <span>{user?.displayName}</span>
                             <button onClick={handleLogOut} className='mx-3 btn btn-active btn-secondary'>Log Out</button>{' '}
+                            
                         </>
                         :
                         <>

@@ -40,6 +40,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, {replace: true});
             })
             .catch(error => console.error(error))
     }
@@ -75,6 +76,10 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <p className='text-danger' >{error}</p>
+                    {
+                        success && <p>Login successfully</p>
+                    }
                 </div>
             </div>
         </div>

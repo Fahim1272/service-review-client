@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from 'react';
 
 const ReviewRow = ({ review }) => {
-    const { serviceName, customer, reviewMessage, email, service } = review;
+    const { _id, serviceName, customer, reviewMessage, email, service } = review;
     const [reviewService, setreviewService] = useState({})
     useEffect(()=>{
-        fetch(`http://localhost:5000/services/${[service.id]}`)
+        fetch(` https://service-review-server-navy-nine.vercel.app/${[service.id]}`)
         .then(res=>res.json())
         .then(data =>  setreviewService(data));
 
     },[service])
+
+    const handleDelete = id =>{
+        const confirmDel = window.confirm('Are you sure to delete?');
+        if (confirmDel) {
+            fetch(`http://localhost:5000/reviews/${[id]}`,{
+                method: 'DELETE'
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+            })
+            
+        }
+    }
     return (
         <tr>
             <th>
                 <label>
-                <button className="btn btn-circle btn-outline">
+                <button onClick={()=>handleDelete(_id)} className="btn btn-circle btn-outline">
   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" /></svg>
 </button>
                 </label>

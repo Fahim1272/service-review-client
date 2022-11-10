@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path:'/services/:id',
                 element:<ServiceCardDetails></ServiceCardDetails>,
-                loader:({ params }) =>fetch(`http://localhost:5000/services/${[params.id]}`)
+                loader:({ params }) =>fetch(` https://service-review-server-navy-nine.vercel.app/${[params.id]}`)
 
             },
 
